@@ -16,6 +16,5 @@ Source for challenges:
 https://sqlzoo.net/
 
 
--- NOTE: 
--- In order for keywords XOR and LENGTH to work, you have to make sure that MySQL is swiched on 
--- in the settings - you'll find the settings icon in the top right corner of the SQL Zoo webpage.
+NOTE: 
+In order for keywords XOR and LENGTH to work, you have to make sure that MySQL is swiched on in the settings - you'll find the settings icon in the top right corner of the SQL Zoo webpage.
