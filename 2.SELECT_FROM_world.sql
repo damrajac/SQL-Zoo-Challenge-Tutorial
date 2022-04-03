@@ -2,6 +2,10 @@
 
 -- Code written by Damjan Rajačić to solve SQL Zoo challenges on https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial
 
+-- NOTE: 
+-- In order for keywords XOR and LENGTH to work, you have to make sure that MySQL is swiched on 
+-- in the settings - you'll find the settings icon in the top right corner of the SQL Zoo webpage.
+
 
 -- In this tutorial you will use the SELECT command on the table world
 
@@ -71,10 +75,8 @@ SELECT name, population, area
 -- China has a big population and big area, it should be excluded.
 -- United Kingdom has a small population and a small area, it should be excluded.
 
-SELECT name, population, area
-  FROM world
- WHERE (population > 250000000 OR area > 3000000) -- Currently the use of XOR keyword on SQL Zoo results in an error; this is an alternative solution.
- AND NOT (population > 250000000 AND area > 3000000);
+SELECT name, population, area FROM world
+WHERE area > 3000000 XOR population > 250000000;
 
 
 -- 9. Rounding
@@ -105,7 +107,7 @@ SELECT name, ROUND(gdp/population, -3) -- This 'trick' with -3 rounds the number
 
 SELECT name, capital
 FROM world
-WHERE LEN(name) = LEN(capital) -- You can use LEN instead of LENGTH. Currently SQL Zoo returns an error when LENGTH is used.
+WHERE LENGTH(name) = LENGTH(capital);
 
 
 -- 12. Matching name and capita
@@ -119,7 +121,7 @@ WHERE LEN(name) = LEN(capital) -- You can use LEN instead of LENGTH. Currently S
 SELECT name, capital
 FROM world
 WHERE LEFT(name, 1) = LEFT(capital, 1)
-AND name <> capital
+AND name <> capital;
 
 
 -- 13. All the vowels
@@ -137,4 +139,10 @@ SELECT name
    AND name LIKE '%i%'
    AND name LIKE '%o%'
    AND name LIKE '%u%'
-   AND name NOT LIKE '% %'
+   AND name NOT LIKE '% %';
+   
+   
+-- NOTE: 
+-- In order for keywords XOR and LENGTH to work, you have to make sure that MySQL is swiched on 
+-- in the settings - you'll find the settings icon in the top right corner of the SQL Zoo webpage.
+--
